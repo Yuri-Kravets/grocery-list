@@ -69,7 +69,17 @@ function displayAlert(text, action) {
 }
 
 function clearItems() {
-    
+    const items = document.querySelectorAll('.grocery-item');
+
+    if (items.length > 0) {
+        items.forEach(function (item) {
+            list.removeChild(item)
+        });
+    }
+    container.classList.remove('show-container');
+    displayAlert('empty list', 'danger');
+    setBackToDefault();
+    localStorage.removeItem('list');
 }
 
 function setBackToDefault() {
